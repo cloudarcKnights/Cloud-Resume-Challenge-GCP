@@ -1,0 +1,2 @@
+# line of code that connects index and javascript function code 
+<p>and this page has been viewed <a id="counter"></a> times :) </p>
