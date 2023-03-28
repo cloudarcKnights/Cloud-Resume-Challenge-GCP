@@ -1,0 +1,29 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: resume-api
+  description: API for updating visitor count
+basePath: /v1
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /visitor-count:
+    get:
+      summary: Update visitor count
+      operationId: updateVisitorCount
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: object
+            properties:
+              visitorCount:
+                type: integer
+                example: 42
+      x-google-backend:
+        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCount
+

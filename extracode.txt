@@ -2,3 +2,10 @@
 <p>and this page has been viewed <a id="counter"></a> times :) </p>
 
 We need to add the javascript code here too:
+# put in index.html
+
+fetch('https://your-cloud-function-url.cloudfunctions.net/updateVisitorCount')
+  .then(response => response.text())
+  .then(data => {
+    console.log(data);
+  });
