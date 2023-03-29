@@ -44,17 +44,51 @@
 // });
 
 
-const countEl = document.getElementById('vc');
+// const countEl = document.getElementById('vc');
 
-updateVisitCount();
-//Testing
-function updateVisitCount() {
-    fetch('https://counter-gateway-7u7o4lcy.wl.gateway.dev/UpdateVisitorCount')
-        .then(response => {
-        return response.json()
-      })
-        .then(data => {
-            console.log(data)
-            document.getElementById('count').innerHTML = data;
-        })
+// updateVisitCount();
+// //Testing
+// function updateVisitCount() {
+//     fetch('https://counter-gateway-7u7o4lcy.wl.gateway.dev/UpdateVisitorCount')
+//         .then(response => {
+//         return response.json()
+//       })
+//         .then(data => {
+//             console.log(data)
+//             document.getElementById('counter').innerHTML = data;
+//         })
+//     }
+
+// Set the API Gateway URL
+const apiUrl = 'https://counter-gateway-7u7o4lcy.wl.gateway.dev/UpdateVisitorCount';
+
+// Define the data to send in the request body
+const data = {
+  visitorId: '12345',
+  visitTime: new Date().toISOString()
+};
+
+// Define the request options
+const options = {
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+};
+
+// Make the HTTP request
+fetch(apiUrl, options)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Request failed');
     }
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
