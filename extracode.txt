@@ -9,3 +9,8 @@ fetch('https://your-cloud-function-url.cloudfunctions.net/updateVisitorCount')
   .then(data => {
     console.log(data);
   });
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/visitor_count.js"></script>
