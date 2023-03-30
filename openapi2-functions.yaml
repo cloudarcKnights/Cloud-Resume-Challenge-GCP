@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: resume-api "It Worked!"
+  title: resume-api
   description: API for updating visitor count
   version: 1.0.0
 schemes:

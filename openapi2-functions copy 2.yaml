@@ -1,13 +1,10 @@
 swagger: '2.0'
 info:
-  version: 1.0.0
   title: resume-api
   description: API for updating visitor count
-basePath: /v1
+  version: 1.0.0
 schemes:
-  - http
-consumes:
-  - application/json
+  - https
 produces:
   - application/json
 paths:
@@ -15,15 +12,21 @@ paths:
     post:
       summary: Update visitor count
       operationId: updateVisitorCount
+      x-google-backend:
+        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCountPOST
       responses:
         '200':
           description: Successful response
           schema:
-            type: object
-            properties:
-              visitorCount:
-                type: integer
-                example: 42
-      x-google-backend:
-        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCountPOST
+            type: integer
+      consumes:
+        - application/json
+      parameters:
+        - name: count
+          in: body
+          required: true
+          schema:
+            type: integer
+            example: 42
+            
 
