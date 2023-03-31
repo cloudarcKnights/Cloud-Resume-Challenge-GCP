@@ -60,35 +60,62 @@
 //     }
 
 // Set the API Gateway URL
-const apiUrl = 'https://counter-gateway-7u7o4lcy.wl.gateway.dev/UpdateVisitorCount';
+// const apiUrl = 'https://counter-gateway-7u7o4lcy.wl.gateway.dev/UpdateVisitorCount';
 
-// Define the data to send in the request body
-const data = {
-  visitorId: '12345',
-  visitTime: new Date().toISOString()
+// // Define the data to send in the request body
+// const data = {
+//   visitorId: '12345',
+//   visitTime: new Date().toISOString()
+// };
+
+// // Define the request options
+// const options = {
+//   method: 'POST',
+//   body: JSON.stringify(data),
+//   headers: {
+//     'Content-Type': 'application/json'
+//   }
+// };
+
+// // Make the HTTP request
+// fetch(apiUrl, options)
+//   .then(response => {
+//     if (response.ok) {
+//       return response.json();
+//     } else {
+//       throw new Error('Request failed');
+//     }
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   });
+
+
+const apiUrl = "https://counter-gateway-7u7o4lcy.wl.gateway.dev";
+const endpoint = "/UpdateVisitorCount";
+const httpMethod = "GET"; // or "POST", "PUT", "DELETE", etc.
+const headers = {
+  "Content-Type": "application/json",
 };
+const body = {}; // Optional
 
-// Define the request options
-const options = {
-  method: 'POST',
-  body: JSON.stringify(data),
-  headers: {
-    'Content-Type': 'application/json'
+fetch(apiUrl + endpoint, {
+  method: httpMethod,
+  headers: headers,
+  body: JSON.stringify(body)
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error("HTTP error " + response.status);
   }
-};
-
-// Make the HTTP request
-fetch(apiUrl, options)
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Request failed');
-    }
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+  return response.json();
+})
+.then(data => {
+  // Do something with the data
+})
+.catch(error => {
+  console.error("Error fetching data:", error);
+});
