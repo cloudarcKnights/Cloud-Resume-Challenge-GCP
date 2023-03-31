@@ -13,7 +13,7 @@ paths:
       summary: Update visitor count
       operationId: updateVisitorCount
       x-google-backend:
-        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCountPOST
+        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCount
       responses:
         '200':
           description: Successful response

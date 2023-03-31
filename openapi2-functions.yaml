@@ -13,9 +13,34 @@ paths:
       summary: Update visitor count
       operationId: updateVisitorCount
       x-google-backend:
-        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCountPOST
+        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCount
       responses:
         '200':
           description: Successful response
           schema:
             type: integer
+        '400':
+          description: Invalid input data
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Invalid count value
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Failed to update visitor count
+      consumes:
+        - application/json
+      parameters:
+        - name: count
+          in: body
+          required: true
+          schema:
+            type: integer
+            example: 42
