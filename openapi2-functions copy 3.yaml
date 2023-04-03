@@ -1,42 +1,50 @@
 swagger: '2.0'
 info:
-  version: 1.0.0
-  title: resume-api "It Worked"
+  title: resume-api
   description: API for updating visitor count
-basePath: /v1
+  version: 1.0.0
 schemes:
-  - http
-consumes:
-  - application/json
+  - https
 produces:
   - application/json
+host: "resume-api.endpoints.my-project-id.cloud.goog"
+x-google-endpoints:
+- name: "my-cool-api.endpoints.my-project-id.cloud.goog"
+  allowCors: true
 paths:
   /UpdateVisitorCount:
     post:
       summary: Update visitor count
       operationId: updateVisitorCount
-      parameters:
-        - name: visitorName
-          in: body
-          required: true
-          schema:
-            type: object
-            properties:
-              visitorName:
-                type: string
-                example: "John"
+      x-google-backend:
+        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCount
       responses:
         '200':
           description: Successful response
           schema:
+            type: integer
+        '400':
+          description: Invalid input data
+          schema:
             type: object
             properties:
-              visitorCount:
-                type: integer
-                example: 42
-        '400':
-          description: Invalid request body
-      x-google-backend:
-        address: https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCountPOST
-
-
+              error:
+                type: string
+                example: Invalid count value
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Failed to update visitor count
+      consumes:
+        - application/json
+      parameters:
+        - name: count
+          in: body
+          required: true
+          schema:
+            type: integer
+            example: 42

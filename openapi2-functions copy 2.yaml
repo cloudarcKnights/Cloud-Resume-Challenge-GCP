@@ -9,6 +9,26 @@ produces:
   - application/json
 paths:
   /UpdateVisitorCount:
+    options:
+      summary: CORS support
+      description: Enable CORS by returning correct headers
+      operationId: corsOptions
+      responses:
+        '200':
+          description: Valid preflight response
+          headers:
+            Access-Control-Allow-Origin:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+        default:
+          description: Invalid preflight response
+      consumes:
+        - application/json
+      produces:
+        - application/json
     post:
       summary: Update visitor count
       operationId: updateVisitorCount
@@ -19,6 +39,22 @@ paths:
           description: Successful response
           schema:
             type: integer
+        '400':
+          description: Invalid input data
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Invalid count value
+        '500':
+          description: Internal server error
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Failed to update visitor count
       consumes:
         - application/json
       parameters:
@@ -28,5 +64,3 @@ paths:
           schema:
             type: integer
             example: 42
-            
-
