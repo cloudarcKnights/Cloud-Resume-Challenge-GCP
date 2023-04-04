@@ -1,36 +1,19 @@
-// window.addEventListener('DOMContentLoaded', (event) =>{
-//     updateVisitorCount();
-// })
+// Get the HTML element with an ID of 'vc'
+var every_count = document.getElementById('the_count');
 
-// const UpdateVisitorCount = 'https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCount';
-// // const localFunctionApi = 'http://localhost:7071/api/GetResumeCounter';
+// Call the function to update the visitor count
+updateVisitCount();
 
-// const getVisitCount = () => {
-//     let count = 30;
-//     fetch(UpdateVisitorCount).then(response => {
-//         return response.json()
-//     }).then(response =>{
-//         console.log("Website called function API.");
-//         count =  response.count;
-//         document.getElementById("counter").innerText = count;
-//     }).catch(function(error){
-//         console.log(error);
-//     });
-//     return count;
-// }this is the end
-
-
-const countEl = document.getElementById('vc');
-
-UpdateVisitCount();
-
-//Testing
-function UpdateVisitCount() {
-  fetch('https://us-west2-infra-earth-377823.cloudfunctions.net/UpdateVisitorCount')
-    .then(response => {
+// Function to update the visitor count
+function updateVisitCount() {
+  // Make a network request to update the visitor count
+  fetch('https://counter-gateway-7u7o4lcy.wl.gateway.dev/UpdateVisitorCount')
+    .then(function(response) {
+      // Convert the response to JSON format
       return response.json();
     })
-    .then(data => {
+    .then(function(data) {
+      // Update the visitor count in the HTML element
       console.log(data);
       document.getElementById('counter').innerHTML = data;
     })
