@@ -1,29 +1,17 @@
-// const admin = require('firebase-admin');
-// admin.initializeApp();
+// Call the function to update the visitor count
+updateVisitCount();
 
-// exports.updateVisitorCount = async (req, res) => {
-//   const docRef = admin.firestore().collection('visitor_count').doc('counter');
-//   const doc = await docRef.get();
-//   const count = doc.exists ? doc.data().count + 1 : 1;
-//   await docRef.set({ count });
-//   res.status(200).send(`Visitor count: ${count}`);
-// };
-// headers = {
-//     'Access-Control-Allow-Origin': '*' 
-// };
-
-// const admin = require('firebase-admin');
-// admin.initializeApp();
-
-// exports.updateVisitorCount = async (req, res) => {
-//   const docRef = admin.firestore().collection('visitor_count').doc('counter');
-//   const doc = await docRef.get();
-//   const count = doc.exists ? doc.data().count + 1 : 1;
-//   await docRef.set({ count });
-  
-//   const headers = {
-//     'Access-Control-Allow-Origin': '*' 
-//   };
-
-//   res.status(200).set(headers).send(`Visitor count: ${count}`);
-// };
+// Function to update the visitor count
+function updateVisitCount() {
+  // Make a network request to update the visitor count
+  fetch('https://counter-gateway-7u7o4lcy.wl.gateway.dev/UpdateVisitorCount')
+    .then(function(response) {
+      // Convert the response to JSON format
+      return response.json();
+    })
+    .then(function(data) {
+      // Update the visitor count in the HTML element
+      console.log(data);
+      document.getElementById('counter').innerHTML = data;
+    })
+}

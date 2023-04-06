@@ -1,6 +1,3 @@
-// Get the HTML element with an ID of 'vc'
-var every_count = document.getElementById('the_count');
-
 // Call the function to update the visitor count
 updateVisitCount();
 
