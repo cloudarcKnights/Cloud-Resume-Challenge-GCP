@@ -20,8 +20,7 @@ Taking on the Cloud Resume Challenge
 
 9. Wrote a Python code in the Cloud Function to communicate with Firestore.
 
-10. Tested the Python code
-You should also include some tests for your Python code. Here are some resources on writing good Python tests.
+10. Tested the Python code with Cypress
 
 11. Developed Infrastructure as Code through Terraform to make configuration of Firestore, API Gateway, and Cloud Function faster.
 
