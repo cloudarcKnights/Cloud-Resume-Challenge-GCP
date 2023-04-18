@@ -1,9 +1,11 @@
-# Maher's-Cloud-Resume-GCP 
+# Cloud Resume Challenge - GCP Edition
 
 ![image](https://user-images.githubusercontent.com/126310351/232629809-acbd30d4-81ba-4dfb-86d8-264d6c03592e.png)
 
 
-## Building Steps
+## ![image](https://user-images.githubusercontent.com/126310351/232640475-03ca8651-096e-4316-9149-fa58ad5116a8.png)
+
+  
 1. Wrote resume in HTML
 
 2. Styled in CSS
