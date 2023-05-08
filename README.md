@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/126310351/232629809-acbd30d4-81ba-4dfb-86d8-264d6c03592e.png)
 
 
-## Follow The Journey: https://dev.to/cloudknights/bmw-mechanic-to-cloud-51on
+## Follow The Journey: [Read My Blog](https://dev.to/cloudknights/bmw-mechanic-to-cloud-51on)
 
   
 1. Wrote resume in HTML
